@@ -15,7 +15,6 @@ class GoKnightsSkill(MycroftSkill):
 
     @intent_handler('knights.intent')
     def handle_not_are_you_intent(self, message):
-        self.speak_dialog("Charge on")
         serA = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
         serA.flush()
         serA.write(b"charge")
@@ -27,7 +26,8 @@ class GoKnightsSkill(MycroftSkill):
         #serC.write(b"charge")
         #serD = serial.Serial('/dev/ttyACM3', 9600, timeout=1)
         #serD.flush()
-        #serD.write(b"charge")   
+        #serD.write(b"charge")
+        self.speak_dialog("Charge on")
 
     def stop(self):
         pass
